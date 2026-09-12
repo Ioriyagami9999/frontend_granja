@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # tsc + vite build: atrapa errores de tipos y de build antes de mergear.
+      # Los tests de Playwright (e2e/) no corren aqui: necesitan el backend y
+      # Postgres reales arriba (ver README.md) — pendiente de un pipeline que
+      # orqueste ambos repos juntos.
+      - name: Build (typecheck + vite build)
+        run: npm run build
