@@ -1,0 +1,47 @@
+<svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="e2eLoopGradIcon" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="28%" stop-color="#14b8a6" />
+      <stop offset="55%" stop-color="#0ea5e9" />
+      <stop offset="80%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M100,55 C100,25 60,25 60,55 C60,85 100,85 100,55 C100,25 140,25 140,55 C140,85 100,85 100,55 Z"
+    fill="none"
+    stroke="url(#e2eLoopGradIcon)"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <circle cx="60" cy="55" r="20" fill="white" />
+  <circle cx="140" cy="55" r="20" fill="white" />
+
+  <g fill="#1e3a8a">
+    <rect x="51" y="46" width="6" height="6" rx="1" />
+    <rect x="59" y="51" width="7" height="7" rx="1" />
+    <rect x="53" y="60" width="5" height="5" rx="1" />
+    <rect x="64" y="43" width="5" height="5" rx="1" />
+    <rect x="66" y="59" width="4" height="4" rx="1" />
+  </g>
+
+  <g stroke="#1e3a8a" stroke-width="2" fill="none">
+    <line x1="140" y1="55" x2="130" y2="45" />
+    <line x1="140" y1="55" x2="150" y2="45" />
+    <line x1="140" y1="55" x2="130" y2="65" />
+    <line x1="140" y1="55" x2="150" y2="65" />
+    <line x1="140" y1="55" x2="140" y2="40" />
+  </g>
+  <g fill="#1e3a8a">
+    <circle cx="140" cy="55" r="4" />
+    <circle cx="130" cy="45" r="2.5" />
+    <circle cx="150" cy="45" r="2.5" />
+    <circle cx="130" cy="65" r="2.5" />
+    <circle cx="150" cy="65" r="2.5" />
+    <circle cx="140" cy="40" r="2.5" />
+  </g>
+</svg>

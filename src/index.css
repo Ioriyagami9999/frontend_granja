@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Identidad de marca: E2E Tech Solutions (teal -> azul, del logo). */
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-300: #5eead4;
+  --color-brand-400: #2dd4bf;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-brand-900: #0f3d3a;
+
+  /* Acento secundario: morado (del extremo derecho del logo). */
+  --color-accent-50: #f5f3ff;
+  --color-accent-100: #ede9fe;
+  --color-accent-200: #ddd6fe;
+  --color-accent-300: #c4b5fd;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+  --color-accent-700: #6d28d9;
+  --color-accent-800: #5b21b6;
+  --color-accent-900: #4c1d95;
+
+  --font-sans: "Inter Variable", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: var(--font-sans);
+}
+
+/* Area tactil minima para controles de campo (tablet del pasturero) */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Blobs decorativos del panel de login */
+@keyframes blob-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(28px, 20px) scale(1.12); }
+}
+@keyframes blob-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-24px, -18px) scale(1.08); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-blob-slow {
+  animation: blob-float-a 14s ease-in-out infinite;
+}
+.animate-blob-slower {
+  animation: blob-float-b 18s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-slow, .animate-blob-slower, .animate-float-slow, .animate-fade-in-up {
+    animation: none;
+  }
+}

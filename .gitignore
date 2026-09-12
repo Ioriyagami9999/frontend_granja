@@ -1,0 +1,19 @@
+node_modules/
+dist/
+
+# Variables de entorno locales (VITE_API_URL, etc.)
+.env
+.env.local
+.env.*.local
+
+# Editor/SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
