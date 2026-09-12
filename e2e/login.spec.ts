@@ -16,7 +16,7 @@ test.describe('Login', () => {
 
   test('login exitoso redirige al dashboard', async ({ page }) => {
     await login(page, ADMIN_EMAIL, ADMIN_PASSWORD);
-    await expect(page).toHaveURL('/');
+    await expect(page).toHaveURL('/dashboard');
     await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
   });
 

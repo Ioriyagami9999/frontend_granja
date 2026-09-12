@@ -15,7 +15,7 @@ interface NavItem {
 // La administracion de usuarios/roles vive aparte, en /admin (ver AdminLayout),
 // no mezclada con la operacion diaria del rancho.
 const NAV_ITEMS: NavItem[] = [
-  { to: '/', label: 'Dashboard', icon: LayoutDashboard, permission: 'animals.read' },
+  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, permission: 'animals.read' },
   { to: '/animales', label: 'Animales', icon: Beef, permission: 'animals.read' },
   { to: '/corrales', label: 'Corrales', icon: Fence, permission: 'corrales.read' },
   { to: '/mapa', label: 'Mapa', icon: Map, permission: 'corrales.read' },
@@ -58,7 +58,7 @@ export function Sidebar() {
         {links.map((link) => {
           const Icon = link.icon;
           return (
-            <NavLink key={link.to} to={link.to} className={linkClasses} end={link.to === '/'}>
+            <NavLink key={link.to} to={link.to} className={linkClasses}>
               <Icon size={17} strokeWidth={2} />
               {link.label}
             </NavLink>

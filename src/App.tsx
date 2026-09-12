@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { AppLayout } from './components/layout/AppLayout';
 import { AdminLayout } from './components/layout/AdminLayout';
 import { RequireAuth } from './components/RequireAuth';
+import { LandingPage } from './pages/Landing/LandingPage';
 import { LoginPage } from './pages/Login/LoginPage';
 import { DashboardPage } from './pages/Dashboard/DashboardPage';
 import { AnimalsListPage } from './pages/Animals/AnimalsListPage';
@@ -26,6 +27,9 @@ function guarded(permission: string, element: ReactElement) {
 export default function App() {
   return (
     <Routes>
+      {/* Publica: explica el sistema, botones de Iniciar sesion y WhatsApp. Si ya
+          hay sesion, LandingPage redirige directo a getDefaultRoute(). */}
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
 
       {/* App operativa del rancho: dashboard, animales, corrales, formulas, campo */}
@@ -36,7 +40,7 @@ export default function App() {
           </RequireAuth>
         }
       >
-        <Route index element={guarded('animals.read', <DashboardPage />)} />
+        <Route path="/dashboard" element={guarded('animals.read', <DashboardPage />)} />
         <Route path="/animales" element={guarded('animals.read', <AnimalsListPage />)} />
         <Route path="/animales/nuevo" element={guarded('animals.write', <AnimalNewPage />)} />
         <Route path="/animales/escanear" element={guarded('animals.write', <ScanStationPage />)} />

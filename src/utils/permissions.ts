@@ -5,7 +5,7 @@
  * los demas roles.
  */
 export function getDefaultRoute(permissions: string[]): string {
-  if (permissions.includes('animals.read')) return '/';
+  if (permissions.includes('animals.read')) return '/dashboard';
   if (permissions.includes('corrales.read')) return '/corrales';
   if (permissions.includes('users.manage')) return '/admin/usuarios';
   if (permissions.includes('roles.manage')) return '/admin/roles';

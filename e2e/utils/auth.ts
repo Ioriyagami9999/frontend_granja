@@ -12,7 +12,7 @@ export async function login(page: Page, email: string, password: string) {
 
 export async function loginAsAdmin(page: Page) {
   await login(page, ADMIN_EMAIL, ADMIN_PASSWORD);
-  await expect(page).toHaveURL('/');
+  await expect(page).toHaveURL('/dashboard');
 }
 
 /** Sufijo unico solo-letras para nombres/emails de prueba (nunca choca entre corridas). */
