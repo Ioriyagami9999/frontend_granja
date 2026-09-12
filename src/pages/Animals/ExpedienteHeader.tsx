@@ -13,7 +13,7 @@ function latestPeso(expediente: Expediente): string {
 const ESTADO_TONE = { activo: 'green', vendido: 'slate', muerto: 'red' } as const;
 
 export function ExpedienteHeader({ expediente }: { expediente: Expediente }) {
-  const { animal, diasEnEngorda, costoAcumulado, salud } = expediente;
+  const { animal, diasEnEngorda, costoAcumulado, gananciaDiariaPeso, conversionAlimenticia, salud } = expediente;
   const foto = resolveAssetUrl(animal.fotoUrl);
   const corral = animal.corralActual;
   const formula = corral?.formulaAsignada;
@@ -51,7 +51,7 @@ export function ExpedienteHeader({ expediente }: { expediente: Expediente }) {
 
       <SaludBanner salud={salud} />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <StatCard label="Días en engorda" value={String(diasEnEngorda)} />
         <StatCard label="Peso de ingreso" value={`${animal.pesoIngreso} kg`} />
         <StatCard label="Peso actual" value={`${latestPeso(expediente)} kg`} />
@@ -59,6 +59,16 @@ export function ExpedienteHeader({ expediente }: { expediente: Expediente }) {
           label="Costo acumulado"
           value={`$${costoAcumulado.toFixed(2)}`}
           hint="Alimento prorrateado + medicamentos"
+        />
+        <StatCard
+          label="Ganancia diaria de peso"
+          value={gananciaDiariaPeso !== null ? `${gananciaDiariaPeso.toFixed(2)} kg/día` : '—'}
+          hint="(peso actual − peso de ingreso) / días en engorda"
+        />
+        <StatCard
+          label="Conversión alimenticia"
+          value={conversionAlimenticia !== null ? `${conversionAlimenticia.toFixed(2)} kg alim./kg carne` : '—'}
+          hint={conversionAlimenticia === null ? 'Aún sin ganancia de peso registrada' : 'Alimento consumido / kg de peso ganado'}
         />
       </div>
     </div>

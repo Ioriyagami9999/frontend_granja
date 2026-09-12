@@ -116,6 +116,9 @@ export interface Expediente {
   movimientos: MovimientoCorral[];
   diasEnEngorda: number;
   costoAcumulado: number;
+  kilosAlimentoConsumidos: number;
+  gananciaDiariaPeso: number | null;
+  conversionAlimenticia: number | null;
   salud: SaludInfo | null;
 }
 
